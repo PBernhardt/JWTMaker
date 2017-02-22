@@ -12,12 +12,12 @@ namespace JWTMaker
 
         public static long ToUnixTime(this DateTime dateTime)
         {
-            return (dateTime - UnixEpoch).Ticks / TimeSpan.TicksPerMillisecond;
+            return (dateTime - UnixEpoch).Ticks / TimeSpan.TicksPerSecond;
         }
 
-        public static DateTime FromUnixTime(this long milliseconds)
+        public static DateTime FromUnixTime(this long seconds)
         {
-            return UnixEpoch.AddTicks(milliseconds*TimeSpan.TicksPerMillisecond);
+            return UnixEpoch.AddTicks(seconds*TimeSpan.TicksPerSecond);
         }
     }
 }
